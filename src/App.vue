@@ -20,4 +20,24 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.logo {
+  width: 100px;
+}
+.reg input, .login input {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  display: block;
+  margin : 10px auto 30px auto ;
+  
+  border: 1px solid orange;
+}
+.reg button, .login button {
+  width: 320px;
+  height: 40px;
+  border: 1px solid orange;
+  background-color: orange;
+  color: whitesmoke;
+  cursor: pointer;
+}
 </style>

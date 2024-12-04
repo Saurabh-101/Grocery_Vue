@@ -6,6 +6,11 @@
     <input type="text" v-model="email" placeholder="Enter Email" />
     <input type="password" v-model="password" placeholder="Enter Password" />
     <button v-on:click="signUp">Sign Up</button>
+    <p>
+        <router-link to="/login">
+            Log In
+        </router-link>
+    </p>
   </div>
 </template>
 
@@ -35,29 +40,15 @@ export default {
         }
     },
   },
+  mounted(){
+    let user = localStorage.getItem('user-info');
+    if(user){
+        this.$router.push({name:'HomePage'});
+    }
+  }
 };
 </script>
 
 <style>
-.logo {
-  width: 100px;
-}
-.reg input {
-  width: 300px;
-  height: 40px;
-  padding-left: 20px;
-  display: block;
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid orange;
-}
-.reg button {
-  width: 320px;
-  height: 40px;
-  border: 1px solid orange;
-  background-color: orange;
-  color: whitesmoke;
-  cursor: pointer;
-}
+
 </style>
