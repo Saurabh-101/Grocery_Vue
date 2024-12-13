@@ -4,7 +4,6 @@
   <table border="1px solid">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Contact</th>
         <th>Address</th>
@@ -12,7 +11,6 @@
     </thead>
     <tbody>
       <tr v-for="item in resturants" :key="item.id">
-        <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.contact }}</td>
         <td>{{ item.address }}</td>
