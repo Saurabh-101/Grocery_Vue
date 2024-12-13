@@ -27,7 +27,7 @@ body{
 .logo {
   width: 100px;
 }
-.reg input, .login input {
+.reg input, .login input, .add-rest input {
   width: 300px;
   height: 40px;
   padding-left: 20px;
@@ -36,7 +36,7 @@ body{
   
   border: 1px solid orange;
 }
-.reg button, .login button {
+.reg button, .login button, .add-rest button{
   width: 320px;
   height: 40px;
   border: 1px solid orange;
