@@ -1,15 +1,21 @@
 <template>
   <div class="nav">
-    <a href="#">Home</a>
-    <a href="#">Add Restaurant</a>
-    <a href="#">Update Restaurants</a>
-    <a href="#">Log Out</a>
+    <router-link to="/">Home</router-link>
+    <router-link to="/addrest">Add Restaurant</router-link>
+    <router-link to="/updaterest">Update Restaurants</router-link>
+    <a v-on:click="logout" href="#">Log Out</a>
   </div>
 </template>
 
 <script>
 export default {
   name: "HeaderPage",
+  methods:{
+    logout(){
+      localStorage.clear();
+      this.$router.push({name:'LogIn'});
+    }
+  }
 };
 </script>
 
@@ -19,8 +25,17 @@ export default {
     overflow: hidden;
     
 }
-.nav a{
+.nav router-link{
     float: left;
+    color: whitesmoke;
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.nav a{
+  float: left;
     color: whitesmoke;
     padding: 14px 16px;
     text-align: center;
