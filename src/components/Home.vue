@@ -15,7 +15,9 @@
         <td>{{ item.name }}</td>
         <td>{{ item.contact }}</td>
         <td>{{ item.address }}</td>
-        <td><router-link :to="'/updaterest/'+item.id" >UPDATE</router-link></td>
+        <td><router-link :to="'/updaterest/'+item.id" >UPDATE</router-link>
+            <button v-on:click="deleteRest(item.id)">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -33,18 +35,30 @@ export default {
     };
   },
   components: {
-    HeaderPage,
-  },
-  async mounted() {
-    let user = localStorage.getItem("user-info");
-    this.name = JSON.parse(user).name;
-    if (!user) {
-      this.$router.push({ name: "SignUp" });
-    }
+      HeaderPage,
+    },
+    async mounted() {
+       this.loadData();
+    },
+    methods:{
+       async deleteRest(id){
+            let result  = await axios.delete("http://localhost:3000/resturants/"+id);
 
-    let result = await axios.get("http://localhost:3000/resturants");
-    this.resturants = result.data;
-  },
+            if(result.status==200){
+                this.loadData();
+            }
+      },
+      async loadData(){
+        let user = localStorage.getItem("user-info");
+        this.name = JSON.parse(user).name;
+        if (!user) {
+            this.$router.push({ name: "SignUp" });
+        }
+        
+        let result = await axios.get("http://localhost:3000/resturants");
+        this.resturants = result.data;
+      }
+    },
 };
 </script>
 
